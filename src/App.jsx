@@ -3,12 +3,11 @@ import "./App.css";
 import ContactForm from "./components/ContactForm/ContactForm";
 import ContactList from "./components/ContactList/ContactList";
 import SearchBox from "./components/SearchBox/SearchBox";
-import initialContacts from "./Data/contacts.json";
-
+import { initialState } from "./redux/contactsSlice";
 function App() {
   const [contacts, setContacts] = useState(() => {
     const savedContactsList = localStorage.getItem("contacts");
-    return savedContactsList ? JSON.parse(savedContactsList) : initialContacts;
+    return savedContactsList ? JSON.parse(savedContactsList) : initialState;
   });
   const [filter, setFilter] = useState("");
 
